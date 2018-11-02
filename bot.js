@@ -3,8 +3,10 @@ const aziz = new Discord.Client();
 
 aziz.on('ready', => {
     console.log('Ready.');
-    var words = ["swell","report","bitch","FuckUM38dHhM","fucked"];
-    aziz.channels.get('500258516444119040').send(Math.floor(Math.random() * words.length));
+    var words = ["كلمة","كلمة","كلمة","كلمة","كلمة"];
+    setInterval(() => {
+        aziz.channels.get('500258516444119040').send(Math.floor(Math.random() * words.length)).then(msg => msg.delete(1000));
+    }, 5000);
 });
 
 aziz.login('process.env.BOT_TOKEN');
