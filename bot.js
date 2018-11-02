@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const aziz = new Discord.Client();
 
-aziz.on('ready', => {
+aziz.on('ready',() => {
     console.log('Ready.');
     var words = ["كلمة","كلمة","كلمة","كلمة","كلمة"];
     setInterval(() => {
