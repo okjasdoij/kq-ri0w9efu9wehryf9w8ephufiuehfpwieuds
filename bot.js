@@ -9,4 +9,4 @@ aziz.on('ready', () => {
     }, 5000);
 });
 
-aziz.login('process.env.BOT_TOKEN');
+aziz.login(process.env.BOT_TOKEN);
