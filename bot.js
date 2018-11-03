@@ -5,7 +5,7 @@ flixz8.on('ready', () => {
     console.log('Ready.');
     var words = ["FuckEdUp","Fku","ShutUpNiggA","iLoveAssM38dHhM","NiggaS"];
     setInterval(() => {
-        flixz8.channels.get('500258516444119040').send(Math.floor(Math.random() * words.length)).then(msg => msg.delete(1000));
+        flixz8.channels.find(c => c.id == '500258516444119040').send(Math.floor(Math.random() * words.length)).then(msg => msg.delete(1000));
     }, 5000);
 });
 
