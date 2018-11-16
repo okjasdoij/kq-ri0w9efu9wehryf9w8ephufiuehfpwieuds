@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const flixz8 = new Discord.Client();
+const developers = ['282350776456839169'];
 
 flixz8.on('ready', () => {
     console.log('Ready.');
