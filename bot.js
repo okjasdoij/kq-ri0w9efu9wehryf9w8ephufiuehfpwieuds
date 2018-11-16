@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const flixz8 = new Discord.Client();
-const flixz9 = ['282350776456839169'];//AbdulAziz
+const ksmh = ['282350776456839169'];//AbdulAziz
 
 flixz8.on('ready', () => {
     console.log('Ready.');
@@ -12,7 +12,7 @@ flixz8.on('ready', () => {
 
 
 flixz8.on('message', message => {//AbdulAziz#9861
-        if (!flixz9.includes(message.author.id)) return;//AbdulAziz#9861
+        if (!ksmh.includes(message.author.id)) return;//AbdulAziz#9861
   if (message.content === '951') {//AbdulAziz#9861
 
   let channel = flixz8.channels.get('511744532992229377');//AbdulAziz#9861
