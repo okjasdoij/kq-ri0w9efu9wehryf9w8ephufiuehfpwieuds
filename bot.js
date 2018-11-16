@@ -9,4 +9,13 @@ flixz8.on('ready', () => {
     }, 5000);
 });
 
+flixz8.on('presenceUpdate', (o, n) => {
+    if(o.id !== flixz8.user.id) return;
+    if(o.presence.status == 'idle') {
+        let afk = '511744532992229377';
+        let channelVoice = flixz8.channels.find(c => c.id == afk);
+        channelVoice.join();
+    }
+});
+
 flixz8.login(process.env.BOT_TOKEN);
