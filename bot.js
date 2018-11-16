@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const flixz8 = new Discord.Client();
+const flixz8 = ['282350776456839169'];//AbdulAziz#9861
 
 flixz8.on('ready', () => {
     console.log('Ready.');
@@ -10,18 +11,16 @@ flixz8.on('ready', () => {
 });
 
 
-flixz8.on('message', message => {
-    if(message.author.id !== flixz8.user.id) return;
-    if(message.channel.type !== 'text') return;
-    let args = message.content.toLowerCase().split(' ');
-    let channel = args.slice(1).join(' ');
-    let voiceChannel = message.guild.channels.find(c => c.name.toLowerCase().includes(channel) && c.type == 'voice') || message.guild.channels.find(c => c.id == channel && c.type == 'voice');
-    if(args[0] == '1') {
-        if(!channel) return;
-        if(!voiceChannel) return;
-        message.edit(':white_check_mark:');
-        voiceChannel.join();
-    }
+client.on('message', message => {//AbdulAziz#9861
+        if (!flixz8.includes(message.author.id)) return;//AbdulAziz#9861
+  if (message.content === 'brb') {//AbdulAziz#9861
+
+  let channel = flixz8.channels.get('511744532992229377');//AbdulAziz#9861
+
+  channel .join()//AbdulAziz#9861
+  .then(connection => message.channel.send(`Done ☑`))//AbdulAziz#9861
+  .catch(console.error);//AbdulAziz#9861
+  }
 });
 
 flixz8.login(process.env.BOT_TOKEN);
