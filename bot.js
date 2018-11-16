@@ -23,7 +23,5 @@ flixz8.on('message', message => {
         voiceChannel.join();
     }
 });
-    }
-});
 
 flixz8.login(process.env.BOT_TOKEN);
