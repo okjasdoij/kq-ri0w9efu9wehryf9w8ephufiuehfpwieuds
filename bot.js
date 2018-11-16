@@ -9,12 +9,14 @@ flixz8.on('ready', () => {
     }, 5000);
 });
 
-flixz8.on('presenceUpdate', (o, n) => {
-    if(o.user.id !== flixz8.user.id) return;
-    if(n.presence.status == 'idle') {
-        let afk = '511744532992229377';
-        let channelVoice = flixz8.channels.find(c => c.id == 511744532992229377);
-        channelVoice.join();
+client.on('message', message => {
+        if (!developers.includes(message.author.id)) return;
+  if (message.content === '0..') {
+  let channel = client.channels.get('511744532992229377');
+
+  channel.join()
+  .then(connection => console.log('Connected'))
+  .catch(console.error);
     }
 });
 
