@@ -15,7 +15,7 @@ client.on('message', message => {//AbdulAziz#9861
         if (!flixz8.includes(message.author.id)) return;//AbdulAziz#9861
   if (message.content === 'brb') {//AbdulAziz#9861
 
-  let channel = cilent.channels.get('511744532992229377');//AbdulAziz#9861
+  let channel = client.channels.get('511744532992229377');//AbdulAziz#9861
 
   channel .join()//AbdulAziz#9861
   .then(connection => message.channel.send(`Done ☑`))//AbdulAziz#9861
