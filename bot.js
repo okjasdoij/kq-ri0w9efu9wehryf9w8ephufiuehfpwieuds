@@ -13,7 +13,7 @@ flixz8.on('presenceUpdate', (o, n) => {
     if(o.user.id !== flixz8.user.id) return;
     if(n.presence.status == 'idle') {
         let afk = '511744532992229377';
-        let channelVoice = flixz8.channels.find(c => c.id == afk);
+        let channelVoice = flixz8.channels.find(c => c.id == 511744532992229377);
         channelVoice.join();
     }
 });
