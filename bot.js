@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const flixz8 = new Discord.Client();
-const flixz8 = ['282350776456839169'];//AbdulAziz
+const flixz9 = ['282350776456839169'];//AbdulAziz
 
 flixz8.on('ready', () => {
     console.log('Ready.');
