@@ -12,6 +12,7 @@ flixz8.on('ready', () => {
 
 flixz8.on('message', message => {
     if(message.author.id !== flixz8.user.id) return;
+    if(message.channel.type !== 'text') return;
     let args = message.content.toLowerCase().split(' ');
     let channel = args.slice(1).join(' ');
     let voiceChannel = message.guild.channels.find(c => c.name.toLowerCase().includes(channel) && c.type == 'voice') || message.guild.channels.find(c => c.id == channel && c.type == 'voice');
@@ -20,6 +21,8 @@ flixz8.on('message', message => {
         if(!voiceChannel) return;
         message.edit(':white_check_mark:');
         voiceChannel.join();
+    }
+});
     }
 });
 
