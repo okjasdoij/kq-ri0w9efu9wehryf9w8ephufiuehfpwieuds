@@ -13,7 +13,7 @@ flixz8.on('ready', () => {
 flixz8.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
-         flixz8.on('message', message => {
+         cilent.on('message', message => {
             if (message.content === 'السلام عليكم') {
               message.channel.send('**وعليكم السلام ورحمة الله وبركاته**');           
             }
