@@ -15,9 +15,7 @@ flixz8.on('ready', () => {
 });
          flixz8.on('message', message => {
             if (message.content === 'السلام عليكم') {
-              message.channel.send('**وعليكم السلام ورحمة الله وبركاته**');
-               
-
+              message.channel.send('**وعليكم السلام ورحمة الله وبركاته**');           
             }
 });
 
