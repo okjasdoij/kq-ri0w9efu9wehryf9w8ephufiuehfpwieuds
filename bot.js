@@ -11,16 +11,15 @@ flixz8.on('ready', () => {
 });
 
 
-flixz8.on('message', message => {//AbdulAziz#9861
-        if (!ksmh.includes(message.author.id)) return;//AbdulAziz#9861
-  if (message.content === '951') {//AbdulAziz#9861
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+         client.on('message', message => {
+            if (message.content === 'السلام عليكم') {
+              message.channel.send('**وعليكم السلام ورحمة الله وبركاته**');
+               
 
-  let channel = flixz8.channels.get('511744532992229377');//AbdulAziz#9861
-
-  channel .join()//AbdulAziz#9861
-  .then(connection => message.channel.send(`Done ☑`))//AbdulAziz#9861
-  .catch(console.error);//AbdulAziz#9861
-  }
+            }
 });
 
 flixz8.login(process.env.BOT_TOKEN);
