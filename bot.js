@@ -10,7 +10,7 @@ flixz8.on('ready', () => {
 });
 
 flixz8.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Logged in as ${flixz8.user.tag}!`);
 });
 
 flixz8.on('message', msg => {
