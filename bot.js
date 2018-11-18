@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const flixz8 = new Discord.Client();
-const ksmh = ['282350776456839169'];//AbdulAziz
 
 flixz8.on('ready', () => {
     console.log('Ready.');
@@ -11,10 +10,10 @@ flixz8.on('ready', () => {
 });
 
 
-client.on('ready', () => {
+flixz8.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
-         client.on('message', message => {
+         flixz8.on('message', message => {
             if (message.content === 'السلام عليكم') {
               message.channel.send('**وعليكم السلام ورحمة الله وبركاته**');
                
