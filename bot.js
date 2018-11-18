@@ -9,14 +9,14 @@ flixz8.on('ready', () => {
     }, 2500);
 });
 
-
 flixz8.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
-         cilent.on('message', message => {
-            if (message.content === 'السلام عليكم') {
-              message.channel.send('**وعليكم السلام ورحمة الله وبركاته**');           
-            }
+
+flixz8.on('message', msg => {
+  if (msg.content === ' السلام عليكم ') {
+    msg.reply(' وعليكم السلام ورحمة الله وبركاته ');
+  }
 });
 
-flixz8.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
