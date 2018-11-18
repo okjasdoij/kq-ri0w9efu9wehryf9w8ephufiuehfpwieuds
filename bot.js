@@ -10,12 +10,10 @@ cilent.on('ready', () => {
 });
 
 cilent.on('ready', () => {
-  console.log(`Logged in as ${cilent.user.tag}!`
-);
+  console.log(`Logged in as ${cilent.user.tag}!`);
 cilent.on('message', msg => {
   if (msg.content === ' السلام عليكم ') {
     msg.reply(' وعليكم السلام ورحمة الله وبركاته ');
-  }
 });
 
 client.login(process.env.BOT_TOKEN);
