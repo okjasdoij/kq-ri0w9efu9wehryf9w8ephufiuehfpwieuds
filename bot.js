@@ -9,10 +9,4 @@ flixz8.on('ready', () => {
     }, 2500);
 });
 
-flixz8.on('message', message => {
-    if(message.content.includes('<@282350776456839169>')) {
-        message.reply('**نايم.** ');
-    }
-});
-
 flixz8.login(process.env.BOT_TOKEN);
