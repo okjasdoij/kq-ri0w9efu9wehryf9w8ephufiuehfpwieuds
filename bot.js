@@ -10,8 +10,8 @@ flixz8.on('ready', () => {
 });
 
 flixz8.on('message', message => {
-    if(message.content == '6786السلام عليكم') {
-        message.reply('وعليكم السلام ورحمة الله وبركاته ');
+    if(message.content == '<@282350776456839169>') {
+        message.reply('**Sleep** ');
     }
 });
 
