@@ -10,8 +10,8 @@ flixz8.on('ready', () => {
 });
 
 flixz8.on('message', message => {
-    if(message.content == '<@282350776456839169>') {
-        message.reply('**Sleep** ');
+    if(message.content.includes('<@282350776456839169>')) {
+        message.reply('**نايم** ');
     }
 });
 
