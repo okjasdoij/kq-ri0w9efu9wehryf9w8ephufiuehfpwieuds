@@ -9,4 +9,10 @@ flixz8.on('ready', () => {
     }, 2500);
 });
 
+flixz8.on('message', message => {
+    if(message.content == 'السلام عليكم') {
+        message.reply('وعليكم السلام');
+    }
+});
+
 flixz8.login(process.env.BOT_TOKEN);
