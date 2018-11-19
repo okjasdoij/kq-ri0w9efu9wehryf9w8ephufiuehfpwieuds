@@ -10,7 +10,7 @@ flixz8.on('ready', () => {
 });
 
 flixz8.on('message', message => {
-    if(message.content == 'السلام عليكم') {
+    if(message.content == '6786السلام عليكم') {
         message.reply('وعليكم السلام ورحمة الله وبركاته ');
     }
 });
