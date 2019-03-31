@@ -1,18 +1,20 @@
 const Discord = require('discord.js');
 const flixz8 = new Discord.Client();
 
-flixz8.on('ready', () => {
-    console.log('Ready.');
-    var words = ["FuckEdUp","Fucku","ShutUpNiggA","iM38dHhM","NiggaS","NoMerrCy-Nigga","Assaf-BiTcH","iBander","iWantAbood","iNeedHaider","AbdulAzizIsKiNgG","iLoveMe"];
-    setInterval(() => {
-        flixz8.channels.find(c => c.id == '493482943537479681').send(words[Math.floor(Math.random() * words.length)]).then(msg => msg.delete(1500));
-    }, 2500);
+
+flixz8.on('ready',async () => {
+console.log("Starting..");
+let g = flixz8.guilds.get("525665071905636387");
+let c = g.channels.get("560450610009473024");
+if(c.type === 'voice') {
+c.join();
+setInterval(() => {
+if(!g.me.voiceChannel) c.join();
+}, 1);
+} else {
+console.log("Failed To Join:\n The Channel Type isn't "text"");
+}
 });
 
-flixz8.on('message', message => {
-    if(message.content.includes('<@282350776456839169>')) {
-        message.reply('**نايم.** ');
-    }
-});
 
-flixz8.login(process.env.BOT_TOKEN);
+flixz8.login(process.env.BOT_TOKEN); '''
