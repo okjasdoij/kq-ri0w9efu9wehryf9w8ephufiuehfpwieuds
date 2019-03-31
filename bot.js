@@ -12,8 +12,9 @@ setInterval(() => {
 if(!g.me.voiceChannel) c.join();
 }, 1);
 } else {
-console.log("Failed To Join:\n The Channel Type isn't "text");
+console.log("Failed To Join:\n The Channel Type isn't "text"");
 }
 });
 
-flixz8.login(process.env.BOT_TOKEN);
+
+flixz8.login(process.env.BOT_TOKEN); '''
