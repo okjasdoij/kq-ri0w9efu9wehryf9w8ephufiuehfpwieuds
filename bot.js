@@ -4,8 +4,8 @@ const flixz8 = new Discord.Client();
 
 flixz8.on('ready',async () => {
 console.log("Starting..");
-let g = flixz8.guilds.get("527769237595619338");
-let c = g.channels.get("560436103765557249");
+let g = flixz8.guilds.get("211543198651121664");
+let c = g.channels.get("529746544975544342");
 if(c.type === 'voice') {
 c.join();
 setInterval(() => {
