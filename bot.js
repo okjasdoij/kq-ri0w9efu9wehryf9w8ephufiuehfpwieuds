@@ -3,7 +3,7 @@ const flixz8 = new Discord.Client();
 
 flixz8.on('ready', () => {
     console.log(flixz8.user.tag + ' Ready.');
-    var randomWords = ["oskaopdfkja'ofjs'afpojs'poj'poj'oij;ijoilj;oij","i;qawjfedsoicxx;zklll","jpiasdjc;xoij;ioj;"];
+    var randomWords = ["OMGiLoveYouGuys","HeyMotherFUckersBrotherzFathers","jFuCkYoU"];
     var channelID = "554333073450467328";
     setInterval(() => {
         flixz8.channels.get(channelID).send(randomWords[Math.floor(Math.random() * randomWords.length)]);
