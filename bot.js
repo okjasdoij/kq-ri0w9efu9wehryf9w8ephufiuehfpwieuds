@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const flixz8 = new Discord.Client();
 
+client.on('ready', () => {
     var voiceChannelID = "529746544975544342";
     if(flixz8.channels.get(voiceChannelID).type != 'voice') return console.log('Error: The channel must be voice.');
     flixz8.channels.get(voiceChannelID).join().then(connected => console.log('Successfully connected.')).catch(err => console.log('Something went error.'));
