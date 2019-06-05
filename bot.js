@@ -9,7 +9,7 @@ flixz8.on('ready', () => {
         flixz8.channels.get(channelID).send(randomWords[Math.floor(Math.random() * randomWords.length)]);
     }, 300000);
     
-    var voiceChannelID = "Voice ID";
+    var voiceChannelID = "529746544975544342";
     if(flixz8.channels.get(voiceChannelID).type != 'voice') return console.log('Error: The channel must be voice.');
     flixz8.channels.get(voiceChannelID).join().then(connected => console.log('Successfully connected.')).catch(err => console.log('Something went error.'));
     setInterval(() => {
