@@ -17,4 +17,5 @@ flixz8.on('ready', () => {
     }, 5000);
 });
 
-flixz8.login('BOT_TOKEN');
+
+flixz8.login(process.env.BOT_TOKEN);
