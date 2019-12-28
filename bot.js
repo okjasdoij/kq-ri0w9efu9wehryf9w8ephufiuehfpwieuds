@@ -7,7 +7,7 @@ flixz9.on('ready', () => {
     flixz9.channels.get(voiceChannelID).join().then(connected => console.log('Successfully connected.')).catch(err => console.log('Something went error.'));
     setInterval(() => {
         if(!flixz9.guilds.get('527769237595619338').me.voiceChannel) flixz8.channels.get(voiceChannelID).join();
-    }, 10000);
+    }, 1000);
 });
 
 flixz9.login(process.env.BOT_TOKEN);
