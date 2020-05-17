@@ -5,7 +5,7 @@ flixz9.on("message", message => {
     if(message.author.id !== "294882584201003009") return;
     if(!message.content.includes("GIVEAWAY")) return;
     setTimeout(() => {
-        message.react(":tada:");
+        message.react("🎉");
     }, 20000);
 });
 
