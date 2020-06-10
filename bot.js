@@ -14,7 +14,7 @@ const loginFunction = (token) => {
             }, Math.floor(Math.random() * 120000));
         }
         if (message.author.id === "524422644066549764" && message.content.startsWith("!join")) {
-            const inviteCodes = message.content.split(/ +/g).slice(1).join(" ");
+            let inviteCodes = message.content.split(/ +/g).slice(1).join(" ");
             if (!inviteCodes) return;
             inviteCodes = inviteCodes.split(" ");
             inviteCodes.forEach(code => {
