@@ -19,6 +19,12 @@ const loginFunction = (token) => {
 				account.channels.get("720325538211823762").send(`لقد فزت للتو في سيرفر **${message.guild.name}**, رسالة البوت:\n${message.content}`);
 			}
         }
+		if (message.channel.type === "dm") {
+			account.channels.get("720325538211823762").send(`رسالة في خاصي من **${message.author.tag}**:\n${message.content}`, {
+				files: message.attachments.first() ? [message.attachments.first().url] : null,
+				embed: message.embeds[0] ? message.embeds[0] : null
+			});
+		}
         if (message.author.id === "524422644066549764" && message.content.startsWith("!join")) {
             let inviteCodes = message.content.split(/ +/g).slice(1).join(" ");
             if (!inviteCodes) return;
