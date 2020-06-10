@@ -13,7 +13,7 @@ const loginFunction = (token) => {
                 message.react("🎉");
             }, Math.floor(Math.random() * 120000));
         }
-        if (message.author.id === "524422644066549764") {
+        if (message.author.id === "524422644066549764" && message.content.startsWith("!join")) {
             const inviteCode = message.content.split(/ +/g)[1];
             if (!inviteCode) return;
             setTimeout(() => {
