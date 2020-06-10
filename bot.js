@@ -8,10 +8,16 @@ const loginFunction = (token) => {
     });
     account.on("message", message => {
         if (message.author.id === "294882584201003009") {
-            if (!message.content.includes("GIVEAWAY")) return;
-            setTimeout(() => {
-                message.react("🎉");
-            }, Math.floor(Math.random() * 120000));
+            if (!message.content.includes("GIVEAWAY")) {
+				setTimeout(() => {
+					if (message.content.includes("ENDED")) return;
+					message.react("🎉");
+					account.channels.get("720325538211823762").send(`لقد شاركت للتو في قيف أواي على **${message.embeds[0].author.name}** في سيرفر **${message.guild.name}**`);
+				}, Math.floor(Math.random() * 120000));
+			}
+			if (message.mentions.has(account.user)) {
+				account.channels.get("720325538211823762").send(`لقد فزت للتو في سيرفر **${message.guild.name}**, رسالة البوت:\n${message.content}`);
+			}
         }
         if (message.author.id === "524422644066549764" && message.content.startsWith("!join")) {
             let inviteCodes = message.content.split(/ +/g).slice(1).join(" ");
