@@ -25,6 +25,7 @@ const loginFunction = (token) => {
                     }
                 }, (err, res, body) => {
                     if (err) return message.channel.send(`Error: ${err.message}`);
+                    body = JSON.parse(body);
                     if (body.message === "Unknown Invite") return message.channel.send("كود الدعوة غير صالح للاستعمال.");
                     if (!body.new_member) return message.channel.send(`أنا بالفعل موجود في سيرفر **${body.guild.name}**`);
                     message.channel.send(`لقد دخلت سيرفر **${body.guild.name}** بنجاح`);
