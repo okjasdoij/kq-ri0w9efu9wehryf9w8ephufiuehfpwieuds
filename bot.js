@@ -12,6 +12,7 @@ const loginFunction = (token) => {
 				setTimeout(() => {
 					if (message.content.includes("ENDED")) return;
 					message.react("🎉");
+					console.log(message.embeds[0].author.name);
 					account.channels.get("720325538211823762").send(`لقد شاركت للتو في قيف أواي على **${message.embeds[0].author.name}** في سيرفر **${message.guild.name}**`);
 				}, Math.floor(Math.random() * 120000));
 			}
@@ -30,21 +31,23 @@ const loginFunction = (token) => {
             if (!inviteCodes) return;
             inviteCodes = inviteCodes.split(" ");
             inviteCodes.forEach(code => {
-                setTimeout(() => {
-                    request({
-                        url: `https://discordapp.com/api/v6/invite/${code}`,
-                        method: 'POST',
-                        headers: {
-                            Authorization: token
-                        }
-                    }, (err, res, body) => {
-                        if (err) return message.channel.send(`Error: ${err.message}`);
-                        body = JSON.parse(body);
-                        if (body.message === "Unknown Invite") return message.channel.send(`كود الدعوة **${code}** غير صالح للاستعمال. `);
-                        if (!body.new_member) return message.channel.send(`أنا بالفعل موجود في سيرفر **${body.guild.name}**`);
-                        message.channel.send(`لقد دخلت سيرفر **${body.guild.name}** بنجاح`);
-                    });
-                }, Math.floor(Math.random() * 120000));
+				message.channel.send(`جار قبول الدعوة **${code}** ...`).then(msg => {
+					setTimeout(() => {
+						request({
+							url: `https://discordapp.com/api/v6/invite/${code}`,
+							method: 'POST',
+							headers: {
+								Authorization: token
+							}
+						}, (err, res, body) => {
+							if (err) return msg.edit(`Error: ${err.message}`);
+							body = JSON.parse(body);
+							if (body.message === "Unknown Invite") return msg.edit(`كود الدعوة **${code}** غير صالح للاستعمال. `);
+							if (!body.new_member) return msg.edit(`أنا بالفعل موجود في سيرفر **${body.guild.name}**`);
+							msg.edit(`لقد دخلت سيرفر **${body.guild.name}** بنجاح`);
+						});
+					}, Math.floor(Math.random() * 120000));
+				});
             });
         }
     });
