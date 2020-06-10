@@ -15,7 +15,7 @@ const loginFunction = (token) => {
 					account.channels.get("720325538211823762").send(`لقد شاركت للتو في قيف أواي على **${message.embeds[0].author.name}** في سيرفر **${message.guild.name}**`);
 				}, Math.floor(Math.random() * 120000));
 			}
-			if (message.mentions.has(account.user)) {
+			if (message.isMentioned(account.user)) {
 				account.channels.get("720325538211823762").send(`لقد فزت للتو في سيرفر **${message.guild.name}**, رسالة البوت:\n${message.content}`);
 			}
         }
