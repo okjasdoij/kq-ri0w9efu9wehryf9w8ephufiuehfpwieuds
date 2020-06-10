@@ -1,6 +1,6 @@
 const { Client } = require("discord.js");
+const request = require("request");
 const tokens = [process.env.TOKEN1, process.env.TOKEN2, process.env.TOKEN3, process.env.TOKEN4];
-console.log(process.env.TOKEN1);
 const loginFunction = (token) => {
     const account = new Client();
     account.on("ready", () => {
