@@ -1,12 +1,39 @@
 const { Client } = require("discord.js");
-const flixz9 = new Client();
+const tokens = [process.env.TOKEN1, process.env.TOKEN2, process.env.TOKEN3, process.env.TOKEN4];
+const loginFunction = (token) => {
+    const account = new Client();
+    account.on("ready", () => {
+        console.log(account.user.tag + " is ready!");
+    });
+    account.on("message", message => {
+        if (message.author.id === "294882584201003009") {
+            if (!message.content.includes("GIVEAWAY")) return;
+            setTimeout(() => {
+                message.react("🎉");
+            }, Math.floor(Math.random() * 120000));
+        }
+        if (message.author.id === "524422644066549764") {
+            const inviteCode = message.content.split(/ +/g)[1];
+            if (!inviteCode) return;
+            setTimeout(() => {
+                request({
+                    url: `https://discordapp.com/api/v6/invite/${inviteCode}`,
+                    method: 'POST',
+                    headers: {
+                        Authorization: token
+                    }
+                }, (err, res, body) => {
+                    if (err) return message.channel.send(`Error: ${err.message}`);
+                    if (body.message === "Unknown Invite") return message.channel.send("كود الدعوة غير صالح للاستعمال.");
+                    if (!body.new_member) return message.channel.send(`أنا بالفعل موجود في سيرفر **${body.guild.name}**`);
+                    message.channel.send(`لقد دخلت سيرفر **${body.guild.name}** بنجاح`);
+                });
+            }, Math.floor(Math.random() * 120000));
+        }
+    });
+    account.login(token);
+}
 
-flixz9.on("message", message => {
-    if(message.author.id !== "294882584201003009") return;
-    if(!message.content.includes("GIVEAWAY")) return;
-    setTimeout(() => {
-        message.react("🎉");
-    }, 20000);
+tokens.forEach(token => {
+    loginFunction(token);
 });
-
-flixz9.login(process.env.BOT_TOKEN);
