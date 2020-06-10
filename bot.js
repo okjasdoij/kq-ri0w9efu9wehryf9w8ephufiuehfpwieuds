@@ -15,10 +15,8 @@ const loginFunction = (token) => {
         }
         if (message.author.id === "524422644066549764" && message.content.startsWith("!join")) {
             const inviteCodes = message.content.split(/ +/g).slice(1).join(" ");
-            if (!inviteCode) return;
-            inviteCodes = inviteCodes.split(",");
+            if (!inviteCodes) return;
             inviteCodes.forEach(code => {
-                code = code.trim();
                 setTimeout(() => {
                     request({
                         url: `https://discordapp.com/api/v6/invite/${code}`,
