@@ -8,7 +8,7 @@ const loginFunction = (token) => {
     });
     account.on("message", message => {
         if (message.author.id === "294882584201003009") {
-            if (!message.content.includes("GIVEAWAY")) {
+            if (message.content.includes("GIVEAWAY")) {
 				setTimeout(() => {
 					if (message.content.includes("ENDED")) return;
 					message.react("🎉");
