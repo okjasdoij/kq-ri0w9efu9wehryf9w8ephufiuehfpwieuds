@@ -16,7 +16,7 @@ const loginFunction = (token) => {
         if (message.author.id === "524422644066549764" && message.content.startsWith("!join")) {
             const inviteCodes = message.content.split(/ +/g).slice(1).join(" ");
             if (!inviteCodes) return;
-console.log(inviteCodes);
+            inviteCodes = inviteCodes.split(" ");
             inviteCodes.forEach(code => {
                 setTimeout(() => {
                     request({
