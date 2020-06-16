@@ -62,7 +62,7 @@ const loginFunction = (token) => {
 				if (!getMessage) return;
 				if (getMessage.author.id !== "294882584201003009") return;
 				if (getMessage.content.includes("ENDED")) return;
-				if (getMessage.reactions.me) return message.channel.send(`انا مشارك بالفعل على القيف اواي الموجود في سيرفر **${getChannel.guild.name}**`);
+				if (getMessage.reactions.get("🎉").me) return message.channel.send(`انا مشارك بالفعل على القيف اواي الموجود في سيرفر **${getChannel.guild.name}**`);
 				message.channel.send(`جاري المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** على جائزة **${getMessage.embeds[0].author.name}** ...`).then(msg => {
 					setTimeout(() => {
 						if (getMessage.content.includes("ENDED")) return msg.edit("لقد انتهى القيف أواي ولم أتمكن في المشاركة :/");
