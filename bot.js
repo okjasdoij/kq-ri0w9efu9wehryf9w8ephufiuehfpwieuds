@@ -67,9 +67,9 @@ const loginFunction = (token) => {
 					setTimeout(() => {
 						if (getMessage.content.includes("ENDED")) return msg.edit("لقد انتهى القيف أواي ولم أتمكن في المشاركة :/");
 						getMessage.react("🎉").then(() => {
-							message.channel.send(`لقد شاركت للتو في قيف أواي على **${getMessage.embeds[0].author.name}** في سيرفر **${getChannel.guild.name}**`);
+							msg.edit(`لقد شاركت للتو في قيف أواي على **${getMessage.embeds[0].author.name}** في سيرفر **${getChannel.guild.name}**`);
 						}).catch(() => {
-							message.channel.send(`لم أتمكن من المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** لسبب ما`);
+							msg.edit(`لم أتمكن من المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** لسبب ما`);
 						});
 					}, Math.floor(Math.random() * 120000));
 				});
