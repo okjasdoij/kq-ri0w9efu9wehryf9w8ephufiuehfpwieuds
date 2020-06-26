@@ -75,8 +75,8 @@ const loginFunction = (token) => {
 				const getMessage = await getChannel.fetchMessage(messageID);
 				if (!getMessage) return;
 				if (getMessage.author.id === "294882584201003009") {
-				if (getMessage.content.includes("ENDED")) return;
-				if (getMessage.reactions.get("🎉").me) return message.channel.send(`انا مشارك بالفعل على القيف اواي الموجود في سيرفر **${getChannel.guild.name}**`);
+					if (getMessage.content.includes("ENDED")) return;
+					if (getMessage.reactions.get("🎉").me) return message.channel.send(`انا مشارك بالفعل على القيف اواي الموجود في سيرفر **${getChannel.guild.name}**`);
 					message.channel.send(`جاري المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** على جائزة **${getMessage.embeds[0].author.name}** ...`).then(msg => {
 						setTimeout(() => {
 							if (getMessage.content.includes("ENDED")) return msg.edit("لقد انتهى القيف أواي ولم أتمكن في المشاركة :/");
@@ -88,11 +88,11 @@ const loginFunction = (token) => {
 						}, Math.floor(Math.random() * 120000));
 					});
 				} else if (getMessage.author.id === "396464677032427530") {
-				if (getMessage.embeds[0] && getMessage.embeds[0].decription.includes("Ended")) return;
-				if (getMessage.reactions.get("🎉").me) return message.channel.send(`انا مشارك بالفعل على القيف اواي الموجود في سيرفر **${getChannel.guild.name}**`);
+					if (getMessage.embeds[0] && getMessage.embeds[0].description.includes("Ended")) return;
+					if (getMessage.reactions.get("🎉").me) return message.channel.send(`انا مشارك بالفعل على القيف اواي الموجود في سيرفر **${getChannel.guild.name}**`);
 					message.channel.send(`جاري المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** على جائزة **${getMessage.embeds[0].fields[0].value}** ...`).then(msg => {
 						setTimeout(() => {
-							if (getMessage.embeds[0] && getMessage.embeds[0].decription.includes("Ended")) return msg.edit("لقد انتهى القيف أواي ولم أتمكن في المشاركة :/");
+							if (getMessage.embeds[0] && getMessage.embeds[0].description.includes("Ended")) return msg.edit("لقد انتهى القيف أواي ولم أتمكن في المشاركة :/");
 							getMessage.react("🎉").then(() => {
 								msg.edit(`لقد شاركت للتو في قيف أواي على **${getMessage.embeds[0].fields[0].value}** في سيرفر **${getChannel.guild.name}**`);
 							}).catch(() => {
