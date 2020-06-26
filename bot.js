@@ -5,7 +5,7 @@ const loginFunction = (token) => {
     const account = new Client();
     account.on("ready", () => {
 	console.log(account.user.tag + " is ready!");
-	const status = ["online","idle","dnd","offline];
+	const status = ["online","idle","dnd","offline"];
 	setInterval(() => {
 		const randomStatus = status[Math.floor(Math.random() * status.length)];
 	    	account.user.setStatus(randomStatus).then(() => {
