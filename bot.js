@@ -21,7 +21,21 @@ const loginFunction = (token) => {
 			if (message.isMentioned(account.user)) {
 				account.channels.get("720325538211823762").send(`لقد فزت للتو في سيرفر **${message.guild.name}**, رسالة البوت:\n${message.content}`);
 			}
-        }
+        } else if (message.author.id === "396464677032427530") {
+		if (message.embeds[0] && message.embeds[0].description.includes("Giveaway")) {
+				setTimeout(() => {
+					if (message.embeds[0] && message.embeds[0].description.includes("Ended")) return;
+					message.react("🎉").then(() => {
+						account.channels.get("720325538211823762").send(`لقد شاركت للتو في قيف أواي على **${message.embeds[0].fileds[0].value}** في سيرفر **${message.guild.name}**`);
+					}).catch(() => {
+						account.channels.get("720325538211823762").send(`لم أتمكن من المشاركة في القيف اواي الموجود في سيرفر **${message.guild.name}** لسبب ما`);
+					});
+				}, Math.floor(Math.random() * 120000));
+		}
+		if (message.isMentioned(account.user)) {
+			account.channels.get("720325538211823762").send(`لقد فزت للتو في سيرفر **${message.guild.name}**, رسالة البوت:\n${message.content}`);
+		}
+	}
 		if (message.channel.type === "dm") {
 			account.channels.get("720325538211823762").send(`رسالة في خاصي من **${message.author.tag}**:\n${message.content}`, {
 				files: message.attachments.first() ? [message.attachments.first().url] : null,
@@ -60,19 +74,33 @@ const loginFunction = (token) => {
 				if (!getChannel) return;
 				const getMessage = await getChannel.fetchMessage(messageID);
 				if (!getMessage) return;
-				if (getMessage.author.id !== "294882584201003009") return;
+				if (getMessage.author.id === "294882584201003009") {
 				if (getMessage.content.includes("ENDED")) return;
 				if (getMessage.reactions.get("🎉").me) return message.channel.send(`انا مشارك بالفعل على القيف اواي الموجود في سيرفر **${getChannel.guild.name}**`);
-				message.channel.send(`جاري المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** على جائزة **${getMessage.embeds[0].author.name}** ...`).then(msg => {
-					setTimeout(() => {
-						if (getMessage.content.includes("ENDED")) return msg.edit("لقد انتهى القيف أواي ولم أتمكن في المشاركة :/");
-						getMessage.react("🎉").then(() => {
-							msg.edit(`لقد شاركت للتو في قيف أواي على **${getMessage.embeds[0].author.name}** في سيرفر **${getChannel.guild.name}**`);
-						}).catch(() => {
-							msg.edit(`لم أتمكن من المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** لسبب ما`);
-						});
-					}, Math.floor(Math.random() * 120000));
-				});
+					message.channel.send(`جاري المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** على جائزة **${getMessage.embeds[0].author.name}** ...`).then(msg => {
+						setTimeout(() => {
+							if (getMessage.content.includes("ENDED")) return msg.edit("لقد انتهى القيف أواي ولم أتمكن في المشاركة :/");
+							getMessage.react("🎉").then(() => {
+								msg.edit(`لقد شاركت للتو في قيف أواي على **${getMessage.embeds[0].author.name}** في سيرفر **${getChannel.guild.name}**`);
+							}).catch(() => {
+								msg.edit(`لم أتمكن من المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** لسبب ما`);
+							});
+						}, Math.floor(Math.random() * 120000));
+					});
+				} else if (getMessage.author.id === "396464677032427530") {
+				if (getMessage.embeds[0] && getMessage.embeds[0].decription.includes("Ended")) return;
+				if (getMessage.reactions.get("🎉").me) return message.channel.send(`انا مشارك بالفعل على القيف اواي الموجود في سيرفر **${getChannel.guild.name}**`);
+					message.channel.send(`جاري المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** على جائزة **${getMessage.embeds[0].fields[0].value}** ...`).then(msg => {
+						setTimeout(() => {
+							if (getMessage.embeds[0] && getMessage.embeds[0].decription.includes("Ended")) return msg.edit("لقد انتهى القيف أواي ولم أتمكن في المشاركة :/");
+							getMessage.react("🎉").then(() => {
+								msg.edit(`لقد شاركت للتو في قيف أواي على **${getMessage.embeds[0].fields[0].value}** في سيرفر **${getChannel.guild.name}**`);
+							}).catch(() => {
+								msg.edit(`لم أتمكن من المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** لسبب ما`);
+							});
+						}, Math.floor(Math.random() * 120000));
+					});
+				}
 			}
         }
     });
