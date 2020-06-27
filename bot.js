@@ -7,7 +7,7 @@ const loginFunction = (token) => {
 	console.log(account.user.tag + " is ready!");
 	const status = ["online","idle","dnd","offline"];
 	setInterval(() => {
-		const randomStatus = status[Math.floor(Math.random() * status.length)];
+		let randomStatus = status[Math.floor(Math.random() * status.length)];
 	    	account.user.setStatus(randomStatus).then(() => {
 			account.channels.get("720325538211823762").send(`تم تغيير الحالة الخاصة بي الى **${randomStatus}**`);
 		});
