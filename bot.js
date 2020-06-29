@@ -1,15 +1,15 @@
 const { Client } = require("discord.js");
 const request = require("request");
 const tokens = [process.env.TOKEN1, process.env.TOKEN2, process.env.TOKEN3, process.env.TOKEN4];
+const status = ["online","idle","dnd","offline"];
 const loginFunction = (token) => {
     const account = new Client();
     account.on("ready", () => {
 	console.log(account.user.tag + " is ready!");
-	const status = ["online","idle","dnd","offline"];
 	setInterval(() => {
 		let randomStatus = status[Math.floor(Math.random() * status.length)];
-	    	account.user.setStatus(randomStatus).then(() => {
-			account.channels.get("720325538211823762").send(`تم تغيير الحالة الخاصة بي الى **${randomStatus}**`);
+	    	account.user.setStatus(randomStatus).then(accountUser => {
+			account.channels.get("720325538211823762").send(`تم تغيير الحالة الخاصة بي الى **${accountUser.presence.status}**`);
 		});
 	}, Math.floor(Math.random() * 32400000) + 10800000);
     });
