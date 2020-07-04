@@ -100,6 +100,17 @@ const loginFunction = (token) => {
 							});
 						}, Math.floor(Math.random() * 120000));
 					});
+				} else {
+					if (getMessage.reactions.get("🎉").me) return message.channel.send(`انا مشارك بالفعل على القيف اواي الموجود في سيرفر **${getChannel.guild.name}**`);
+					message.channel.send(`جاري المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** ...`).then(msg => {
+						setTimeout(() => {
+							getMessage.react("🎉").then(() => {
+								msg.edit(`لقد شاركت للتو في قيف أواي في سيرفر **${getChannel.guild.name}**`);
+							}).catch(() => {
+								msg.edit(`لم أتمكن من المشاركة في القيف اواي الموجود في سيرفر **${getChannel.guild.name}** لسبب ما`);
+							});
+						}, Math.floor(Math.random() * 120000));
+					});
 				}
 			}
         }
